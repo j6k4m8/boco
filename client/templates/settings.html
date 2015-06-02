@@ -1,0 +1,38 @@
+<template name="settingsPane">
+    <div class="settings-pane card blue-grey white-text">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s3 hot-settings">
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="#" class="btn white blue-text js-hot-toggle">Show Spreadsheet</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="btn white blue-text js-clear-trigger">Clear</a>
+                            <a class="btn white blue-text js-demo-trigger">Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <p>To pick a scale factor, use the slider at left. To edit the data, use the controls at right.</p>
+                </div>
+                <div class="col s3">
+                    <p class="white-text">Scale Factor</p>
+                    <p class="range-field">
+                        <input type="range" id="plotScale" min="1" max="1000" />
+                    </p>
+                    <div class="row">
+                        <div class="col s6">
+                            <a class="btn white blue-text js-render-trigger">Render</a>
+                        </div>
+                        <div class="col s6">
+                            <a class="btn white blue-text js-render-trigger disabled">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

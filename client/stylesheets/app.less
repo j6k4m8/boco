@@ -1,0 +1,75 @@
+body {
+    overflow: hidden;
+}
+
+#scatter-load {
+    width: 1000px;
+    height: 600px;
+}
+
+
+.right-pane {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70vw;
+    transition: all 0.5s;
+    overflow: scroll;
+    z-index: 1000;
+    border-left: 5px solid rgb(96, 125, 139);
+
+    &.hidden {
+        right: -70vw;
+    }
+    & .content {
+        background: #222;
+        border-right: 2px solid #efefef;
+        border-bottom: 2px solid #efefef;
+        height: 100vh;
+    }
+}
+
+.hot-settings {
+    z-index: 600;
+}
+
+
+/*
+    d3 Styling
+*/
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+circle {
+    transition: opacity 0.5s;
+}
+
+#spreadsheet {
+    overflow: scroll;
+}
+
+.hide-pane {
+    height: 100vh;
+    position: absolute;
+    background-color: #222;
+    width: 100vw;
+    display: none;
+    transition: all 0.2s;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 500;
+}

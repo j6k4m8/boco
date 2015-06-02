@@ -7,3 +7,10 @@
 meteor-platform
 autopublish
 insecure
+iron:router
+jquery
+underscore
+materialize:materialize
+olragon:handsontable
+d3js:d3
+less
