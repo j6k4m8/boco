@@ -14,20 +14,17 @@ hotParseToJSON = function() {
         });
     });
     return json;
-}
+};
 
-
-PlotOptions = {
-    scale: 1,
-    margins: {
-        "left": 40,
-        "right": 30,
-        "top": 30,
-        "bottom": 30
-    }
+if (!!Session.get('waitingForPlotData')) {
+    Meteor.setTimeout(function() {
+        PlotOptions = Session.get('page_plot').plotOptions;
+    }, 1000);
 }
 
 showScatterPlot = function(data) {
+
+    $("#scatter-load").html('');
 
     var width = 1000;
     var height = 600;
