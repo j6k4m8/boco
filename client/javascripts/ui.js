@@ -1,5 +1,5 @@
 Template.home.created = function() {
-    if (!!this.data.plot_uuid) {
+    if (!!this.data && this.data.plot_uuid) {
         Session.set('waitingForPlotData', true);
         Meteor.call('getPlot', this.data.plot_uuid, function(err, val) {
             if (!err) {
