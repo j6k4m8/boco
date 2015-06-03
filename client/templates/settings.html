@@ -17,6 +17,9 @@
                 </div>
                 <div class="col s6">
                     <p>To pick a scale factor, use the slider at left. To edit the data, use the controls at right.</p>
+                    {{#if willExpire}}
+                        <p>This plot was created at {{plot_date}} and will expire {{plot_expiry}}.</p>
+                    {{/if}}
                 </div>
                 <div class="col s3">
                     <p class="white-text">Scale Factor</p>
@@ -28,7 +31,7 @@
                             <a class="btn white blue-text js-render-trigger">Render</a>
                         </div>
                         <div class="col s6">
-                            <a class="btn white blue-text js-render-trigger disabled">Link</a>
+                            <a class="btn white blue-text js-link-trigger">Link</a>
                         </div>
                     </div>
                 </div>

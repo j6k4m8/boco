@@ -14,3 +14,5 @@ materialize:materialize
 olragon:handsontable
 d3js:d3
 less
+percolate:synced-cron
+momentjs:moment
