@@ -32,6 +32,11 @@ Template.settingsPane.events({
                 prompt('Use this link to navigate directly back to this graph.', 'http://boco.jordan.matelsky.com/plots/' + val);
             }
         });
+    },
+
+    'click .js-label-trigger': function() {
+        PlotOptions.labels.static.show = !PlotOptions.labels.static.show;
+        showScatterPlot(hotParseToJSON());
     }
 });
 
@@ -46,6 +51,6 @@ Template.settingsPane.helpers({
     },
 
     plot_expiry: function() {
-        return moment(Session.get('page_plot').created).add(1, 'w').calendar()
+        return moment(Session.get('page_plot').created).add(2, 'w').calendar()
     }
-})
+});

@@ -44,6 +44,15 @@ showScatterPlot = function(data) {
         .domain(d3.extent(data, function(d) { return parseInt(d.number); }))
         .range([height - PlotOptions.margins.top - PlotOptions.margins.bottom, 0]);
 
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([200, 0])
+        .html(function(d) {
+            return _.template('<div class="card"><div class="card-content"><div class="card-title blue-grey-text text-darken-2"><%= name %></div><div class="row"><div class="col s6"><span>$<%= cost %></span></div><div class="col s6"><span>N<sup>o</sup>:<%= number %></span></div></div></div>')(d)
+        });
+
+    svg.call(tip);
+
     svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + y.range()[0] + ")");
     svg.append("g").attr("class", "y axis");
 
@@ -77,16 +86,21 @@ showScatterPlot = function(data) {
     datumGroup.append("circle")
         .attr("r", function(d) { return Math.pow(parseInt(d.product), 0.2 * PlotOptions.scale)})
         .attr("class", "dot")
-        .attr("opacity", function(d) {return 0.2})
+        .attr("opacity", function(d) {return 0.4})
         .style("fill", function (d) {
                 return colors(d.department);
         })
         .on('mouseover', function(d){
             var nodeSelection = d3.select(this).style({opacity:'0.9'});
+            tip.show(d);
         })
         .on('mouseout', function(d) {
-            d3.select(this).style({opacity: 0.2})
+            d3.select(this).style({opacity: 0.4})
+            tip.hide(d);
         })
         .append("svg:title")
-        .text(function(d) { return d.name; })
+        .text(function(d) { return d.name; });
+        if (!!PlotOptions.labels.static.show) {
+            datumGroup.append('text').text(function(d) { return d.name });
+        }
 }

@@ -15,13 +15,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s5">
                     <p>To pick a scale factor, use the slider at left. To edit the data, use the controls at right.</p>
                     {{#if willExpire}}
                         <p>This plot was created at {{plot_date}} and will expire {{plot_expiry}}.</p>
                     {{/if}}
+                    <div class="row">
+                        <div class="col s6">
+                            <a class="btn white blue-text js-link-trigger">Link</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s3">
+                <div class="col s4">
                     <p class="white-text">Scale Factor</p>
                     <p class="range-field">
                         <input type="range" id="plotScale" min="1" max="1000" />
@@ -31,7 +36,7 @@
                             <a class="btn white blue-text js-render-trigger">Render</a>
                         </div>
                         <div class="col s6">
-                            <a class="btn white blue-text js-link-trigger">Link</a>
+                            <a class="btn white blue-text js-label-trigger">{{showOrHideStaticLabels}} Labels</a>
                         </div>
                     </div>
                 </div>

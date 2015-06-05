@@ -19,6 +19,11 @@ Template.home.rendered = function() {
             "right": 30,
             "top": 30,
             "bottom": 30
+        },
+        labels: {
+            static: {
+                show: false
+            }
         }
     };
     if (Session.get('waitingForPlotData') == true) {
