@@ -63,12 +63,31 @@ showScatterPlot = function(data) {
         .attr("y", height - 35)
         .text("Cost");
 
+    svg.append("text")
+        .attr("fill", "#414241")
+        .attr("text-anchor", "end")
+        .attr('transform', 'rotate(-90)')
+        .attr("x", -1 * height / 2)
+        .attr("y", -25)
+        .text("Number");
+
+    svg.append("text")
+        .attr("class", "plot_title")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", 10)
+        .text(PlotOptions.plot_title);
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
         .ticks(20, ",.1s")
         .tickSize(6, 0);
-    var yAxis = d3.svg.axis().scale(y).orient("left").ticks(20, ",.1s").tickSize(6, 0);
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(20, ",.1s")
+        .tickSize(6, 0);
 
     svg.selectAll("g.y.axis").call(yAxis);
     svg.selectAll("g.x.axis").call(xAxis);
